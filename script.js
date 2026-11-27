@@ -1,4 +1,5 @@
 
+// get computer choice
 
 let getComputerChoice = () => {
     let number = Math.floor((Math.random() *3 ) + 1);
@@ -11,4 +12,11 @@ let getComputerChoice = () => {
         return "scissors";
     }
 }
-console.log(getComputerChoice());
+
+
+let getHumanChoice = () => {
+    let choice = prompt("Enter your choice", "");
+    return choice.toLowerCase();
+}
+
+console.log(getHumanChoice());
