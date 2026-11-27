@@ -58,6 +58,8 @@ let playRound = (humanChoice, computerChoice) => {
     }
 }
 
+// Limit number of games to 5
+
 let playGame = () => {
     if(gameCount >= 5){
        return gameCount;
@@ -67,3 +69,17 @@ let playGame = () => {
 }
 playGame();
 console.log(`total game is: ${gameCount}`);
+
+
+// Winner message
+
+let getWinner = () => {
+    if(gameCount == 5 && (computerScore > humanSCore)){
+        console.log(`You lose! Computer is the winner`);
+    } else if(gameCount == 5 && (humanSCore > computerScore)){
+        console.log(`Congratulations! You won`);
+    } else{
+        console.log(`It's a draw`);
+    }
+}
+getWinner();
