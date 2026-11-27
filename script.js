@@ -23,6 +23,7 @@ let getHumanChoice = () => {
 
 let humanSCore = 0;
 let computerScore = 0;
+let gameCount = 0;
 
 
 
@@ -39,6 +40,7 @@ let playRound = (humanChoice, computerChoice) => {
     {
         console.log(`You loose! ${computerSelection} beats ${humanSelection}`)
         computerScore += 1;
+        gameCount +=1;
         console.log(`computer score is: ${computerScore}  human score is: ${humanSCore}`);
 
     } else if(
@@ -48,10 +50,20 @@ let playRound = (humanChoice, computerChoice) => {
     {
         console.log(`You win! ${humanSelection} beats ${computerSelection}`)
         humanSCore +=1;
+        gameCount +=1;
         console.log(`computer score is: ${computerScore}  human score is: ${humanSCore}`);
     } else{
+        gameCount +=1;
         console.log(`it is a draw! computer score is: ${computerScore}  human score is: ${humanSCore}`)
     }
 }
 
-playRound(getHumanChoice, getComputerChoice);
+let playGame = () => {
+    if(gameCount >= 5){
+       return gameCount;
+    }
+    playRound(getHumanChoice, getComputerChoice);
+    return playGame();
+}
+playGame();
+console.log(`total game is: ${gameCount}`);
